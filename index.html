@@ -51,6 +51,16 @@
             animation: fadeIn 1s ease-out 0.3s both;
         }
 
+        .marriage-date {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.95);
+            font-size: 1.5em;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease-out 0.5s both;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
         @keyframes slideDown {
             from {
                 opacity: 0;
@@ -126,21 +136,21 @@
         }
 
         .story-section:nth-child(3) {
-            border-left-color: #6bcf7f;
+            border-left-color: #ff1493;
             animation-delay: 0.3s;
         }
 
         .story-section:nth-child(3)::before {
-            background: linear-gradient(90deg, #6bcf7f, #95e1ad);
+            background: linear-gradient(90deg, #ff1493, #ff69b4);
         }
 
         .story-section:nth-child(4) {
-            border-left-color: #4d96ff;
+            border-left-color: #9d4edd;
             animation-delay: 0.4s;
         }
 
         .story-section:nth-child(4)::before {
-            background: linear-gradient(90deg, #4d96ff, #74b9ff);
+            background: linear-gradient(90deg, #9d4edd, #c77dff);
         }
 
         .story-section:hover {
@@ -174,14 +184,14 @@
         }
 
         .story-section:nth-child(3) h2 {
-            background: linear-gradient(135deg, #6bcf7f, #95e1ad);
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
 
         .story-section:nth-child(4) h2 {
-            background: linear-gradient(135deg, #4d96ff, #74b9ff);
+            background: linear-gradient(135deg, #9d4edd, #c77dff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -219,12 +229,12 @@
         }
 
         .story-section:nth-child(3) .chapter-number {
-            background: linear-gradient(135deg, #6bcf7f, #95e1ad);
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
             color: white;
         }
 
         .story-section:nth-child(4) .chapter-number {
-            background: linear-gradient(135deg, #4d96ff, #74b9ff);
+            background: linear-gradient(135deg, #9d4edd, #c77dff);
             color: white;
         }
 
@@ -275,6 +285,10 @@
                 font-size: 2.5em;
             }
 
+            .marriage-date {
+                font-size: 1.2em;
+            }
+
             .story-section {
                 padding: 25px;
             }
@@ -292,6 +306,7 @@
 <body>
     <div class="container">
         <h1>✨ Welcome to VeMa ✨</h1>
+        <p class="marriage-date">💍 Married on 2nd April, 2026 💍</p>
         <p class="subtitle">Our Love Story - A Journey Through Chapters</p>
         
         <div class="story-section">
