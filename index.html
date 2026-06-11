@@ -5,68 +5,297 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to VeMa - Our Love Story</title>
     <style>
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.8;
+        * {
             margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
             min-height: 100vh;
+            animation: gradient 15s ease infinite;
         }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            background: white;
-            padding: 50px;
-            border-radius: 15px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+            padding: 40px 20px;
         }
+
         h1 {
-            color: #764ba2;
+            color: white;
             text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: slideDown 0.8s ease-out;
+            letter-spacing: 2px;
         }
+
+        .subtitle {
+            text-align: center;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.3em;
+            margin-bottom: 50px;
+            animation: fadeIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+
         .story-section {
-            margin: 25px 0;
-            padding: 20px;
-            background: #f9f9f9;
-            border-left: 5px solid #667eea;
-            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.95);
+            margin: 30px 0;
+            padding: 35px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            border-left: 6px solid;
+            transition: all 0.4s ease;
+            animation: slideInUp 0.6s ease-out;
+            position: relative;
+            overflow: hidden;
         }
+
+        .story-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            animation: slideInUp 0.8s ease-out;
+        }
+
+        .story-section:nth-child(1) {
+            border-left-color: #ff6b6b;
+            animation-delay: 0.1s;
+        }
+
+        .story-section:nth-child(1)::before {
+            background: linear-gradient(90deg, #ff6b6b, #ff8787);
+        }
+
+        .story-section:nth-child(2) {
+            border-left-color: #ffd93d;
+            animation-delay: 0.2s;
+        }
+
+        .story-section:nth-child(2)::before {
+            background: linear-gradient(90deg, #ffd93d, #ffed4e);
+        }
+
+        .story-section:nth-child(3) {
+            border-left-color: #6bcf7f;
+            animation-delay: 0.3s;
+        }
+
+        .story-section:nth-child(3)::before {
+            background: linear-gradient(90deg, #6bcf7f, #95e1ad);
+        }
+
+        .story-section:nth-child(4) {
+            border-left-color: #4d96ff;
+            animation-delay: 0.4s;
+        }
+
+        .story-section:nth-child(4)::before {
+            background: linear-gradient(90deg, #4d96ff, #74b9ff);
+        }
+
+        .story-section:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+        }
+
         .story-section h2 {
-            color: #667eea;
+            font-size: 1.8em;
             margin-top: 0;
-            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ee7752, #e73c7e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
+
+        .story-section:nth-child(1) h2 {
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-section:nth-child(2) h2 {
+            background: linear-gradient(135deg, #ffd93d, #ffed4e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-section:nth-child(3) h2 {
+            background: linear-gradient(135deg, #6bcf7f, #95e1ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .story-section:nth-child(4) h2 {
+            background: linear-gradient(135deg, #4d96ff, #74b9ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
         .story-section p {
             color: #333;
-            font-size: 1.1em;
-            margin: 10px 0;
+            font-size: 1.15em;
+            margin: 15px 0;
+            line-height: 1.9;
         }
-        .image-container {
-            margin: 40px 0;
+
+        .chapter-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #ee7752, #e73c7e);
+            color: white;
+            border-radius: 50%;
             text-align: center;
+            line-height: 50px;
+            font-weight: bold;
+            font-size: 1.5em;
+            margin-right: 15px;
+            animation: pulse 2s ease-in-out infinite;
         }
+
+        .story-section:nth-child(1) .chapter-number {
+            background: linear-gradient(135deg, #ff6b6b, #ff8787);
+        }
+
+        .story-section:nth-child(2) .chapter-number {
+            background: linear-gradient(135deg, #ffd93d, #ffed4e);
+            color: #333;
+        }
+
+        .story-section:nth-child(3) .chapter-number {
+            background: linear-gradient(135deg, #6bcf7f, #95e1ad);
+            color: white;
+        }
+
+        .story-section:nth-child(4) .chapter-number {
+            background: linear-gradient(135deg, #4d96ff, #74b9ff);
+            color: white;
+        }
+
+        .image-container {
+            margin: 60px 0 40px 0;
+            text-align: center;
+            animation: slideInUp 0.8s ease-out 0.5s both;
+        }
+
         .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+            border-radius: 25px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            border: 8px solid rgba(255, 255, 255, 0.9);
         }
+
         .image-container img:hover {
-            transform: scale(1.02);
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1em;
+            animation: fadeIn 1.2s ease-out 0.8s both;
+            padding: 30px;
+        }
+
+        .heart {
+            display: inline-block;
+            color: #ff6b6b;
+            animation: heartbeat 0.6s ease-in-out infinite;
+            font-size: 1.2em;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .story-section {
+                padding: 25px;
+            }
+
+            .story-section h2 {
+                font-size: 1.4em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to the world of VeMa</h1>
+        <h1>✨ Welcome to VeMa ✨</h1>
+        <p class="subtitle">Our Love Story - A Journey Through Chapters</p>
         
         <div class="story-section">
-            <h2>Chapter 1: Strangers</h2>
+            <h2><span class="chapter-number">1</span>Strangers</h2>
             <p>
                 It all began with a chance encounter, two souls crossing paths unexpectedly. 
                 In that moment of initial meeting, neither of us knew that fate had something 
@@ -77,7 +306,7 @@
         </div>
 
         <div class="story-section">
-            <h2>Chapter 2: Friends</h2>
+            <h2><span class="chapter-number">2</span>Friends</h2>
             <p>
                 As days turned into weeks, conversations became deeper and laughter grew louder. 
                 We discovered shared dreams, inside jokes, and countless reasons to be together. 
@@ -88,7 +317,7 @@
         </div>
 
         <div class="story-section">
-            <h2>Chapter 3: Lovers</h2>
+            <h2><span class="chapter-number">3</span>Lovers</h2>
             <p>
                 There came a moment when friendship transformed into something deeper and more beautiful. 
                 The line between friendship and love blurred, and suddenly we realized what had been 
@@ -99,7 +328,7 @@
         </div>
 
         <div class="story-section">
-            <h2>Chapter 4: Soulmates</h2>
+            <h2><span class="chapter-number">4</span>Soulmates</h2>
             <p>
                 And now, we stand here as soulmates—two souls perfectly aligned with one another. 
                 Through trials and triumphs, through laughter and tears, we have discovered that 
@@ -112,6 +341,10 @@
 
         <div class="image-container">
             <img src="VeMa.jpeg" alt="VeMa - A Love Story">
+        </div>
+
+        <div class="footer">
+            Forever together <span class="heart">❤️</span>
         </div>
     </div>
 </body>
