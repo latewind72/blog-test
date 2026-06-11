@@ -280,6 +280,102 @@
             50% { transform: scale(1); }
         }
 
+        .ring-icon {
+            display: inline-block;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            animation: slideInUp 0.8s ease-out 1s both;
+        }
+
+        .ring-icon:hover {
+            transform: scale(1.2) rotate(-15deg);
+        }
+
+        .ring-icon:active {
+            transform: scale(0.95);
+        }
+
+        .date-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            z-index: 1000;
+            text-align: center;
+            animation: popupAppear 0.5s ease-out forwards;
+            max-width: 90%;
+        }
+
+        .date-popup.show {
+            display: block;
+        }
+
+        @keyframes popupAppear {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        .date-popup h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        .date-popup p {
+            color: white;
+            font-size: 1.3em;
+            margin: 10px 0;
+        }
+
+        .date-popup .close-btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 2px solid white;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .date-popup .close-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .overlay.show {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             h1 {
                 font-size: 2.5em;
@@ -299,6 +395,18 @@
 
             .subtitle {
                 font-size: 1em;
+            }
+
+            .date-popup {
+                padding: 30px;
+            }
+
+            .date-popup h2 {
+                font-size: 1.5em;
+            }
+
+            .date-popup p {
+                font-size: 1.1em;
             }
         }
     </style>
@@ -360,7 +468,35 @@
 
         <div class="footer">
             Forever together <span class="heart">❤️</span>
+            <div class="ring-icon" onclick="toggleDatePopup()">💍</div>
         </div>
     </div>
+
+    <div class="overlay" id="overlay" onclick="toggleDatePopup()"></div>
+    <div class="date-popup" id="datePopup">
+        <h2>Our Special Day</h2>
+        <p>💕 2nd April, 2026 💕</p>
+        <p style="font-size: 1em; font-weight: normal;">The day we became husband and wife</p>
+        <button class="close-btn" onclick="toggleDatePopup()">Close</button>
+    </div>
+
+    <script>
+        function toggleDatePopup() {
+            const popup = document.getElementById('datePopup');
+            const overlay = document.getElementById('overlay');
+            popup.classList.toggle('show');
+            overlay.classList.toggle('show');
+        }
+
+        // Close popup when pressing Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const popup = document.getElementById('datePopup');
+                if (popup.classList.contains('show')) {
+                    toggleDatePopup();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
